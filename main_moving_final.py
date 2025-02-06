@@ -601,6 +601,7 @@ instructions_text_2 = ['Welcome to a simple route choice simulation!',
                         'In this initial simulation, navigate to the green boxes on the screen.',
                         'A new box will appear after you reach the previous one.',
                         'The simulation will end after you reach the last box.',
+                        'The white rectangles represent road markings. You can walk over them.',
                         '',
                         'Press SPACE to start!']
 
