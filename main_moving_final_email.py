@@ -38,7 +38,7 @@ x_closest_pedestrians = 20
 num_lights = 24
 player_x = 20
 target_size = 30
-no_targets = 5   
+no_targets = 4   
 target_colour = (0, 255, 0)
 
 # Pedestrian target variables
@@ -598,6 +598,7 @@ instructions_text_2 = ['Welcome to a simple route choice simulation!',
                         'In this initial simulation, navigate to the green boxes on the screen.',
                         'A new box will appear after you reach the previous one.',
                         'The simulation will end after you reach the last box.',
+                        'The white rectangles represent road markings. You can walk over them.',
                         '',
                         'Press SPACE to start!']
 
