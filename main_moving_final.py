@@ -5,14 +5,14 @@ import csv
 import pandas as pd
 
 # Participant number
-participant_number = 21
+participant_number = 63
 
 # Treatment possibilities
 treatment_scenarios = [('H1', 'H2', 'H3'), ('H1', 'H3', 'H2'), ('H2', 'H1', 'H3'), ('H2', 'H3', 'H1'), ('H3', 'H1', 'H2'), ('H3', 'H2', 'H1')]
 
 # Pick a random treatment scenario
 treatment = random.choice(treatment_scenarios)
-# treatment = ('H3', 'H1', 'H2')
+# treatment = ('H2', 'H3', 'H1')
 
 # Game variables/constants
 width, height = 1500, 840
@@ -32,17 +32,16 @@ road_colour = (50, 50, 50)
 player_colour = (255, 0, 0)
 pedestrian_colour = (0, 0, 255)
 road_marking_colour = (255, 255, 255)
-light_pole_colour = (105, 105, 105)
 player_radius = 17.5
 player_velocity = [0,0]
-FPS = 120
+FPS = 60
 Timestep = 1/FPS
 no_pedestrians = 40
 x_closest_pedestrians = 20
 num_lights = 24
 player_x = 20
 target_size = 30
-no_targets = 4   
+no_targets = 3   
 target_colour = (0, 255, 0)
 
 # Pedestrian target variables
@@ -91,7 +90,7 @@ Notes:
 # Pedestrian constants (Play around with these values)
 # Target Force:
 m = 1 # Mass of pedestrian
-v_0 = 1.3 * 100 # Desired velocity
+v_0 = 1.34 * 70 # Desired velocity
 T_alpha = 0.5 # Relaxation time
 
 # Interaction force between pedestrians:
@@ -232,13 +231,12 @@ class Player:
             if move_distance >= distance:
                 self.x = target_x
                 self.y = target_y
-            
             else:
                 self.x = new_x
                 self.y = new_y
 
             velocity_mag = math.hypot(new_velocity_x, new_velocity_y)
-            if new_velocity_x < -100:
+            if new_velocity_x < -80:
                 new_velocity_x = 0
             elif velocity_mag > v_0:
                 new_velocity_x = (v_0 / velocity_mag) * new_velocity_x
@@ -761,6 +759,7 @@ while running:
             target_x, target_y = pygame.mouse.get_pos()
             target_x += camera_offset_x
             moving = True
+            # print(f'Player position: {player.x, player.y}')
             if flags_treatment['H1']:
                 click_H1 += 1
                 click_position_H1.append((target_x, target_y))
